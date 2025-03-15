@@ -57,6 +57,23 @@ int set_transition(Automaton *a, int state_from, char symbol, int state_to);
  */
 bool is_final_state(Automaton *a, int state);
 
+
+/**
+ * @brief Percorre o autômato para verificar se a palavra é aceita.
+ * 
+ * Esta função simula a execução de um autômato finito não determinístico, 
+ * processando a palavra símbolo por símbolo e verificando se ela é aceita 
+ * ou rejeitada, considerando estados finais mesmo sem transições para alguns símbolos.
+ *
+ * @param a Ponteiro para a estrutura do autômato.
+ * @param current_state Estado atual no autômato.
+ * @param word Palavra a ser analisada.
+ * @param pos Posição atual na palavra.
+ * 
+ * @return 0 se a palavra for aceita, 1 caso contrário.
+ */
+int walk(Automaton *a, int current_state, const char *word, int pos);
+
 /**
  * @brief Percorre o autômato com base em uma palavra de entrada. Inicia sempre no estado 0.
  *
@@ -64,6 +81,4 @@ bool is_final_state(Automaton *a, int state);
  *
  * @return Retorna 0 se a palavra for aceita (terminar em um estado final) ou 1 se for rejeitada.
  */
-int walk(Automaton *a, int current_state, const char *word, int pos);
-
 int check(Automaton *a, const char *word);
