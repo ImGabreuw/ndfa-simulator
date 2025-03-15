@@ -43,4 +43,4 @@ else
     ./$OUTPUT
 fi
 
-# rm -f $OUTPUT
+rm -f $OUTPUT
