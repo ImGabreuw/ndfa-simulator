@@ -22,7 +22,11 @@ void read_line(FILE *file, int line_index, char line[MAX_LINE_SIZE])
             if (strlen(buffer) <= 0)
                 break;
 
-            buffer[strlen(buffer) - 1] = 0;
+            if (buffer[strlen(buffer) - 1] == '\n')
+            {
+                buffer[strlen(buffer) - 1] = 0;
+            }
+
             strcpy(line, buffer);
             break;
         }
